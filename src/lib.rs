@@ -1,4 +1,3 @@
-pub mod chat;
 pub mod networked;
 #[derive(Debug)]
 pub struct User {
