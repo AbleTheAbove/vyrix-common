@@ -2,7 +2,20 @@
 
 use serde_derive::{Deserialize, Serialize};
 
-use crate::chat::ChatDestination;
+///use crate::chat::ChatDestination;
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct User {
+    pub id: i32,
+    pub username: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub enum ChatDestination {
+    Public,
+    Clan,
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 enum DataType {
     Coords {
