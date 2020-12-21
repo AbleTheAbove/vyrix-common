@@ -1,5 +1,8 @@
 //use bincode::{deserialize, serialize};
+
 use serde_derive::{Deserialize, Serialize};
+
+use crate::chat::ChatDestination;
 #[derive(Debug, Serialize, Deserialize)]
 enum DataType {
     Coords {
