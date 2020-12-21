@@ -17,7 +17,7 @@ pub enum ChatDestination {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-enum DataType {
+pub enum DataType {
     Coords {
         longitude: f32,
         latitude: f32,
