@@ -3,12 +3,7 @@
 use serde_derive::{Deserialize, Serialize};
 
 ///use crate::chat::ChatDestination;
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct User {
-    pub id: i32,
-    pub username: String,
-}
+use crate::User;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub enum ChatDestination {
