@@ -1,5 +1,7 @@
 use std::fmt;
 
+pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
+
 pub struct Postition {
     pub x: i32,
     pub y: i32,
