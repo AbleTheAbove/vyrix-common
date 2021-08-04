@@ -79,7 +79,16 @@ fn test() {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+pub struct Version {
+    pub common: String,
+    pub server: String,
+    pub client: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub enum NetData {
     Ping,
     Message(Message),
+    Connect,
+    Version(Version),
 }
