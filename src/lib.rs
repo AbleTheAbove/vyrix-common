@@ -49,7 +49,7 @@ impl fmt::Display for Channel {
         write!(f, "#",)
     }
 }
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Message {
     pub id: ID,
     pub sender: ID,
@@ -78,7 +78,7 @@ fn test() {
     println!("{}", message);
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub enum NetData {
     Ping,
     Message(Message),
