@@ -25,6 +25,24 @@ pub enum Channel {
     Guild(ID),
 }
 
+impl fmt::Display for Channel {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            Channel::Public => {
+                write!(f, "Public",)
+            }
+            Channel::Private(id) => {
+                write!(f, "private chat {}", id)
+            }
+            Channel::Guild(id) => {
+                write!(f, "Guild chat")
+            }
+        };
+
+        write!(f, "#",)
+    }
+}
+
 pub struct Message {
     pub id: ID,
     pub sender: ID,
@@ -56,12 +74,4 @@ fn test() {
 pub enum NetData {
     Ping,
     Message(Message),
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
 }
