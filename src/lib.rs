@@ -2,6 +2,10 @@ use std::fmt;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+// Temporary data will be updated later
+pub struct GameTime {
+    tick: u16,
+}
 pub struct Postition {
     pub x: i32,
     pub y: i32,
