@@ -3,8 +3,8 @@ use std::fmt;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
-pub struct Health(f64, f64);
-pub struct Gilt(u64);
+pub struct Health(pub f64, pub f64);
+pub struct Gilt(pub u64);
 
 // Temporary data will be updated later
 pub struct TimeDate {
