@@ -50,6 +50,9 @@ impl fmt::Display for Channel {
             Channel::Private(id) => {
                 write!(f, "private chat {}", id)
             }
+            Channel::Party(id) => {
+                write!(f, "Party chat {}", id)
+            }
             Channel::Guild(id) => {
                 write!(f, "Guild chat")
             }
