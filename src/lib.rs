@@ -3,9 +3,17 @@ use std::fmt;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+pub struct Health(f64, f64);
+pub struct Gilt(u64);
+
 // Temporary data will be updated later
-pub struct GameTime {
-    tick: u16,
+pub struct TimeDate {
+    pub tick: u64,   // when hits 40 inc second
+    pub second: u64, // when hits 60 inc minute
+    pub minute: u64, // when hits 120 inc day
+    pub day: u8,     // when hits 255 inc season
+    pub season: u8,  // when hits 4 inc year and restart all previous counters
+    pub year: u64,   // ahhhhhhhhh
 }
 pub struct Postition {
     pub x: i32,
@@ -29,6 +37,7 @@ pub const BANNER_HEIGHT: u32 = 16;
 pub enum Channel {
     Public,
     Private(ID),
+    Party(ID), // Steam lobby ID
     Guild(ID),
 }
 
