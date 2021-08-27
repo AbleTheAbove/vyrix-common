@@ -3,9 +3,18 @@ use std::fmt;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
+pub const SERVER_PORT: u16 = 40300;
+pub const CLIENT_PORT: u16 = 40301;
+
+pub enum Rank {
+    God,
+    Top,
+    Mid,
+    Low,
+}
 pub struct Health(pub f64, pub f64);
 pub struct Gilt(pub u64);
-
+pub struct GuildTag(ID);
 // Temporary data will be updated later
 pub struct TimeDate {
     pub tick: u64,   // when hits 40 inc second
@@ -33,7 +42,7 @@ pub type ID = String;
 pub const BANNER_WIDTH: u32 = 8;
 pub const BANNER_HEIGHT: u32 = 16;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub enum Channel {
     Public,
     Private(ID),
@@ -61,7 +70,7 @@ impl fmt::Display for Channel {
         write!(f, "#",)
     }
 }
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Message {
     pub id: ID,
     pub sender: ID,
@@ -90,17 +99,27 @@ fn test() {
     println!("{}", message);
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Version {
     pub common: String,
     pub server: String,
     pub client: String,
 }
-
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub enum NetData {
     Ping,
     Message(Message),
     Connect,
     Version(Version),
+}
+
+// All duration is in number of seconds
+// Multiplier followed by duration
+pub enum Effects {
+    None,
+    Agility(u8, u64),
+    Poison(u8, u64),
+    Regeneration(u8, u64),
+    Burning(u8, u64),
+    Slowness(u8, u64),
 }
