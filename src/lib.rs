@@ -12,6 +12,11 @@ pub enum Rank {
     Mid,
     Low,
 }
+
+pub enum Holidays {
+    ArborDay,
+    HallowsEve,
+}
 pub struct Health(pub f64, pub f64);
 pub struct Gilt(pub u64);
 pub struct GuildTag(ID);
@@ -37,7 +42,7 @@ pub struct Coordinates {
 
 pub type COLOR = (u8, u8, u8);
 pub type BANNER = [[COLOR; 8]; 16];
-pub type ID = String;
+pub type ID = u64;
 
 pub const BANNER_WIDTH: u32 = 8;
 pub const BANNER_HEIGHT: u32 = 16;
@@ -90,10 +95,10 @@ impl fmt::Display for Message {
 
 fn test() {
     let message = Message {
-        id: "hi".to_string(),
-        sender: "hi".to_string(),
+        id: 9,
+        sender: 7,
         text: "Hi".to_string(),
-        channel: Channel::Guild("hi".to_string()),
+        channel: Channel::Guild(64),
     };
 
     println!("{}", message);
