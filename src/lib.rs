@@ -1,5 +1,7 @@
 use serde_derive::{Deserialize, Serialize};
 use std::fmt;
+mod world;
+use world::*;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
@@ -29,10 +31,12 @@ pub struct TimeDate {
     pub season: u8,  // when hits 4 inc year and restart all previous counters
     pub year: u64,   // ahhhhhhhhh
 }
-pub struct Postition {
-    pub x: i32,
-    pub y: i32,
-    pub z: i32,
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ChunkPosition {
+    pub x: i8,
+    pub y: i8,
+    pub z: i8,
 }
 pub struct Coordinates {
     pub x: f32,
