@@ -1,6 +1,12 @@
 use super::*;
 
-pub type VoxelList = [[[Block; 32]; 32]; 32];
+// We need 5.17 layers of chunks to get to MC's world border.
+// Obviously, this is impossible, so instead we'll round up to 6.
+// Now, if we just fill chunks with chunks, we'll get memory overflow
+// because (32^6)^3 is 32^18, which is a REALLY big number.
+// So, everything will be boxed for the higher levels, and unboxed
+// for the lower levels. This way we don't all of a sudden run out of
+// memory because we generate an entire world in RAM. Yikes.
 
 #[derive(Clone, Debug)]
 pub struct Chunk<T> {
