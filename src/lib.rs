@@ -1,7 +1,7 @@
 use serde_derive::{Deserialize, Serialize};
 use std::fmt;
-mod world;
-use world::*;
+pub mod world;
+pub use world::*;
 
 pub const COMMON_VERSION: &str = env!("CARGO_PKG_VERSION");
 
