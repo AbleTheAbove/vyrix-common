@@ -15,10 +15,24 @@ pub enum Rank {
     Low,
 }
 
+#[derive(Serialize, Deserialize)]
+pub struct IPConfig {
+    pub server: String,
+}
+
+#[derive(Serialize, Deserialize)]
 pub enum Holidays {
+    None,
     ArborDay,
     HallowsEve,
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct HolidayMap {
+    pub current: Holidays,
+    pub tomorrow: Holidays,
+}
+
 pub struct Health(pub f64, pub f64);
 pub struct Gilt(pub u64);
 pub struct GuildTag(ID);
