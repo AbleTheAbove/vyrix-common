@@ -20,7 +20,7 @@ pub struct IPConfig {
     pub server: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Debug, Deserialize)]
 pub enum Holidays {
     None,
     ArborDay,
