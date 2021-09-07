@@ -33,8 +33,11 @@ pub struct HolidayMap {
     pub tomorrow: Holidays,
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct Health(pub f64, pub f64);
+#[derive(Serialize, Deserialize)]
 pub struct Gilt(pub u64);
+#[derive(Serialize, Deserialize)]
 pub struct GuildTag(ID);
 // Temporary data will be updated later
 pub struct TimeDate {
@@ -58,6 +61,7 @@ pub struct Coordinates {
     pub z: f32,
 }
 
+pub type LIGHTLEVEL = u8;
 pub type COLOR = (u8, u8, u8);
 pub type BANNER = [[COLOR; 8]; 16];
 pub type ID = u64;
