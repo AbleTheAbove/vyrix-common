@@ -6,10 +6,15 @@ pub struct DiceDamage {
     modifier: u8,
 }
 
-pub struct Weapon {
-    name: String,
-    rank: Rank,
-    damage: DiceDamage,
-    cooldown: u64,
-    effect: Effect,
+pub enum Enhancement {
+    LifeSteal,
+    Reach,
+    Sharpness,
+}
+
+pub type Material = u8;
+pub struct BladedWeapon {
+    pub BladeMaterial: Material,
+    pub GuardMaterial: Material,
+    pub Enhancements: Vec<Enhancement>,
 }

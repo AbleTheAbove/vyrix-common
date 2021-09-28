@@ -132,6 +132,7 @@ pub struct Version {
     pub server: String,
     pub client: String,
 }
+
 #[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub enum NetData {
     Ping,

@@ -4,13 +4,13 @@ pub enum Metals {
     Iron,
     Titanium,
 }
-
+pub type BlockLevel = u8;
 #[derive(Debug, Clone, Copy)]
 pub enum Block {
     Air,
     Dirt { grown: bool },
-    Water { level: u8 },
-    Ice { level: u8 },
+    Water { level: BlockLevel },
+    Ice { level: BlockLevel },
     Ore { mat: Metals },
     BarBlock { mat: Metals },
     Fire { size: u8, ttl: u32 },
