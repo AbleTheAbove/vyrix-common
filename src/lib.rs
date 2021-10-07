@@ -56,11 +56,20 @@ pub struct ChunkPosition {
     pub z: i8,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct Coordinates {
     pub x: f32,
     pub y: f32,
     pub z: f32,
+}
+
+pub type NetFloat = (u64, u64);
+
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
+pub struct NetCoordinates {
+    pub x: NetFloat,
+    pub y: NetFloat,
+    pub z: NetFloat,
 }
 
 pub type LIGHTLEVEL = u8;
@@ -141,7 +150,7 @@ pub enum NetData {
     Message(Message),
     Connect,
     Version(Version),
-    SyncPosition(Coordinates),
+    SyncPosition(NetCoordinates),
 }
 
 // All duration is in number of seconds
