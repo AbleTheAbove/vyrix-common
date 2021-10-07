@@ -56,21 +56,21 @@ pub struct ChunkPosition {
     pub z: i8,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Coordinates {
     pub x: f32,
     pub y: f32,
     pub z: f32,
 }
 
-pub type NetFloat = (u64, u64);
-
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
-pub struct NetCoordinates {
-    pub x: NetFloat,
-    pub y: NetFloat,
-    pub z: NetFloat,
+impl PartialEq for Coordinates {
+    fn eq(&self, other: &Self) -> bool {
+        self.x.to_bits() == other.x.to_bits()
+            && self.y.to_bits() == other.y.to_bits()
+            && self.z.to_bits() == other.z.to_bits()
+    }
 }
+impl Eq for Coordinates {}
 
 pub type LIGHTLEVEL = u8;
 pub type COLOR = (u8, u8, u8);
