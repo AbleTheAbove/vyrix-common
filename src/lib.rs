@@ -55,6 +55,8 @@ pub struct ChunkPosition {
     pub y: i8,
     pub z: i8,
 }
+
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct Coordinates {
     pub x: f32,
     pub y: f32,
