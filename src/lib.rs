@@ -150,7 +150,7 @@ pub enum NetData {
     Message(Message),
     Connect,
     Version(Version),
-    SyncPosition(NetCoordinates),
+    SyncPosition(Coordinates),
 }
 
 // All duration is in number of seconds
